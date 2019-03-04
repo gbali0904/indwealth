@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/nav_dashboard"
+        android:icon="@drawable/dashboard"
+        android:title="Dashboard" />
+    <item
+        android:id="@+id/nav_portfolio"
+        android:icon="@drawable/pro"
+        android:title="Portfolio" />
+    <item
+        android:id="@+id/nav_liabilites"
+        android:icon="@drawable/lib"
+        android:title="Liabilities" />
+    <item
+        android:id="@+id/nav_explore"
+        android:icon="@drawable/search"
+        android:title="Explore" />
+    <item
+        android:id="@+id/nav_profile"
+        android:icon="@drawable/profile"
+        android:title="Profile" />
+</menu>
+
