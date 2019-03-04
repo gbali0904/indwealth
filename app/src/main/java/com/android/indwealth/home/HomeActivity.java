@@ -18,6 +18,7 @@ import android.widget.TextView;
 
 import com.android.indwealth.R;
 import com.android.indwealth.base.BaseActivity;
+import com.android.indwealth.fragment.BlankFragment;
 import com.android.indwealth.funds.FundsFragment;
 import com.android.indwealth.utility.FragmentManagerUtil;
 
@@ -98,14 +99,29 @@ public class HomeActivity extends BaseActivity implements NavigationView.OnNavig
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
                 case R.id.nav_dashboard:
+                    FragmentManagerUtil.replaceFragment(getSupportFragmentManager(), R.id.relLay,
+                        BlankFragment.newInstance(), false, BlankFragment.TAG);
+                    showToolBar("Dashboard");
                     return true;
                 case R.id.nav_portfolio:
+                    FragmentManagerUtil.replaceFragment(getSupportFragmentManager(), R.id.relLay,
+                            BlankFragment.newInstance(), false, BlankFragment.TAG);
+                    showToolBar("Portfolio");
                     return true;
                 case R.id.nav_liabilites:
+                    FragmentManagerUtil.replaceFragment(getSupportFragmentManager(), R.id.relLay,
+                            BlankFragment.newInstance(), false, BlankFragment.TAG);
+                    showToolBar("Liabilites");
                     return true;
                 case R.id.nav_explore:
+                    FragmentManagerUtil.replaceFragment(getSupportFragmentManager(), R.id.relLay,
+                            FundsFragment.newInstance(), false, FundsFragment.TAG);
+                    showToolBar(getResources().getString(R.string.title));
                     return true;
                 case R.id.nav_profile:
+                    FragmentManagerUtil.replaceFragment(getSupportFragmentManager(), R.id.relLay,
+                            BlankFragment.newInstance(), false, BlankFragment.TAG);
+                    showToolBar("Profile");
                     return true;
             }
             return false;
@@ -119,15 +135,28 @@ public class HomeActivity extends BaseActivity implements NavigationView.OnNavig
         int id = item.getItemId();
 
         if (id == R.id.nav_dashboard) {
+            FragmentManagerUtil.replaceFragment(getSupportFragmentManager(), R.id.relLay,
+                    BlankFragment.newInstance(), false, BlankFragment.TAG);
+            showToolBar("Dashboard");
             // Handle the camera action
         } else if (id == R.id.nav_portfolio) {
+            FragmentManagerUtil.replaceFragment(getSupportFragmentManager(), R.id.relLay,
+                    BlankFragment.newInstance(), false, BlankFragment.TAG);
+            showToolBar("Portfolio");
 
         } else if (id == R.id.nav_liabilites) {
+            FragmentManagerUtil.replaceFragment(getSupportFragmentManager(), R.id.relLay,
+                    BlankFragment.newInstance(), false, BlankFragment.TAG);
+            showToolBar("Liabilites");
 
         } else if (id == R.id.nav_explore) {
-
+            FragmentManagerUtil.replaceFragment(getSupportFragmentManager(), R.id.relLay,
+                    FundsFragment.newInstance(), false, FundsFragment.TAG);
+            showToolBar(getResources().getString(R.string.title));
         } else if (id == R.id.nav_profile) {
-
+            FragmentManagerUtil.replaceFragment(getSupportFragmentManager(), R.id.relLay,
+                    BlankFragment.newInstance(), false, BlankFragment.TAG);
+            showToolBar("Profile");
         }
         drawer.closeDrawer(GravityCompat.START);
         return true;
