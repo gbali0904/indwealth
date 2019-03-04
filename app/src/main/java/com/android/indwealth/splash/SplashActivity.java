@@ -8,7 +8,6 @@ import android.os.Bundle;
 import com.android.indwealth.R;
 import com.android.indwealth.base.BaseActivity;
 import com.android.indwealth.home.HomeActivity;
-import com.android.indwealth.main.MainActivity;
 import com.android.indwealth.splash.persenter.SplashPresenter;
 import com.android.indwealth.splash.view.SplashView;
 

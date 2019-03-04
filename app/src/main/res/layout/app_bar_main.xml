@@ -23,7 +23,6 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:textColor="@android:color/white"
-                android:text="Title"
                 android:textSize="18sp"
                 />
 
@@ -35,11 +34,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:queryHint="Search"
-            android:background="@drawable/search"
+            android:background="@drawable/back_search"
             android:layout_marginBottom="20dp"
             android:layout_marginRight="20dp"
             android:layout_marginLeft="20dp"
             android:iconifiedByDefault="false"
+            android:focusable="false"
             android:queryBackground="@color/colorPrimaryLight"
             android:layout_centerHorizontal="true" />
 

@@ -7,9 +7,10 @@ import android.support.v7.widget.LinearLayoutManager;
 import com.android.indwealth.api.RetrofitImp;
 import com.android.indwealth.di.ActivityContext;
 import com.android.indwealth.di.PerActivity;
-import com.android.indwealth.main.persenter.MainMvpPersenter;
-import com.android.indwealth.main.persenter.MainPersenter;
-import com.android.indwealth.main.view.MainView;
+import com.android.indwealth.funds.adapter.FundListAdapter;
+import com.android.indwealth.funds.persenter.MainMvpPersenter;
+import com.android.indwealth.funds.persenter.MainPersenter;
+import com.android.indwealth.funds.view.MainView;
 import com.android.indwealth.splash.persenter.SplashMvpPresenter;
 import com.android.indwealth.splash.persenter.SplashPresenter;
 import com.android.indwealth.splash.view.SplashView;
@@ -62,6 +63,11 @@ public class ActivityModule {
     @Provides
     RetrofitImp provideretrofit() {
         return new RetrofitImp();
+    }
+
+    @Provides
+    FundListAdapter provideFundListAdapter() {
+        return new FundListAdapter();
     }
 
 

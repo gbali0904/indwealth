@@ -12,6 +12,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.widget.RelativeLayout;
 import android.widget.SearchView;
 import android.widget.TextView;
 
@@ -23,7 +24,7 @@ import com.android.indwealth.utility.FragmentManagerUtil;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class HomeActivity   extends BaseActivity implements NavigationView.OnNavigationItemSelectedListener ,SearchView.OnQueryTextListener{
+public class HomeActivity extends BaseActivity implements NavigationView.OnNavigationItemSelectedListener, SearchView.OnQueryTextListener {
 
 
     private static OnSearchListener mListener;
@@ -41,11 +42,14 @@ public class HomeActivity   extends BaseActivity implements NavigationView.OnNav
     BottomNavigationView navigation;
     @BindView(R.id.container)
     ConstraintLayout container;
+    @BindView(R.id.relLay)
+    RelativeLayout relLay;
 
     public static Intent getStartIntent(Context context) {
         Intent intent = new Intent(context, HomeActivity.class);
         return intent;
     }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,7 +61,6 @@ public class HomeActivity   extends BaseActivity implements NavigationView.OnNav
     @Override
     protected void setUp() {
         setSupportActionBar(toolbar);
-
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
@@ -66,8 +69,8 @@ public class HomeActivity   extends BaseActivity implements NavigationView.OnNav
         navigation.setSelectedItemId(R.id.nav_explore);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
         searchView.setOnQueryTextListener(this);
-        FragmentManagerUtil.replaceFragment(getSupportFragmentManager(), R.id.container,
-                FundsFragment.newInstance(), true, FundsFragment.TAG);
+        FragmentManagerUtil.replaceFragment(getSupportFragmentManager(), R.id.relLay,
+                FundsFragment.newInstance(), false, FundsFragment.TAG);
         showToolBar(getResources().getString(R.string.title));
 
     }
@@ -78,6 +81,7 @@ public class HomeActivity   extends BaseActivity implements NavigationView.OnNav
         getSupportActionBar().setTitle("");
         title.setText(barTitle);
     }
+
     @Override
     public void onBackPressed() {
         if (drawer.isDrawerOpen(GravityCompat.START)) {
@@ -141,8 +145,9 @@ public class HomeActivity   extends BaseActivity implements NavigationView.OnNav
     }
 
     public static void setOnSerachListener(OnSearchListener listener) {
-        mListener=listener;
+        mListener = listener;
     }
+
     public interface OnSearchListener {
         void onSearch(String query);
     }
